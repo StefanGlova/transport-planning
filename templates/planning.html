@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}Pallet planner{% endblock %}
+
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div style="color:yellow;" class="col">
+            <h1>Enter data and load entry files before pressing "Create Delivery Plan"</h1>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+        	<form action="/planning" method="POST" enctype="multipart/form-data">
+				<div class="form_group">
+					<label style="font-size:1em;">VOLUME_TARGET: </label>
+					<input type="text" id="VOLUME_TARGET" name="VOLUME_TARGET">
+					<br>
+					<br>
+					<label style="font-size:1em;">VOLUME_MAX: </label>
+					<input type="text" id="VOLUME_MAX" name="VOLUME_MAX">
+					<br>
+					<br>
+					<label style="font-size:1em;">MINIMUM_VOLUME</label>
+					<input type="text" id="MINIMUM_VOLUME" name="MINIMUM_VOLUME">
+					<br>
+					<br>
+					<label style="font-size:1em;">Orders File:</label>
+
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" name="orders" id="orders">
+						<label class="custom-file-label"></label>
+					</div>
+					<br>
+					<label style="font-size:1em;">Inventory File:</label>
+
+					<div class="custom-file">
+						<input type="file" class="custom-file-input" name="inventory" id="inventory">
+						<label class="custom-file-label"></label>
+					</div>
+
+							
+				</div>
+				<br>
+				<button type="submit" class="btn btn-primary">Create Delivery Plan</button>
+			</form>
+            <br>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}
