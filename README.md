@@ -27,11 +27,10 @@ The most important and the most complex part is Step 2:
 1. It first creates list of all postcodes pairs for all deliveries (100 delivery postcodes,
 gives nearly 5000 postcodes pairs). 
 2. Then it calculates distance between each postcode pair (if 100 postcodes, 5000 pairs = 5000 distance information), based on latitude and longitude
-of each postcode. It uses the UK postcode database with approx. 1,700,000 postcodes to get latitude and longitude.
+of each postcode. It uses the UK postcode database with approx. 1,700,000 postcodes to get latitude and longitude - this function is currently disabled
+due to size of postcode database, but have savings.json file already pre-created for testing purpose. 
 3. Origin destination is set up as part of the app, not as user's input argument. Next step is to calculate distance between origin and all destinations.
-4. It calculate savings using all delivery postcodes pairs and distance from origin to each of postcodes. This is purely based on Clare-Wright Sabing Algorithm
-and the calculation check distance from origin to each individual postcode in pair of postcodes and then compare it with distance if these two postcodes are on
-same delivery vehicle. Difference between two is saving.
+4. It calculate savings using all delivery postcodes pairs and distance from origin to each of postcodes. This is purely based on Clare-Wright Sabing Algorithm and the calculation check distance from origin to each individual postcode in pair of postcodes and then compare it with distance if these two postcodes are on same delivery vehicle. Difference between two is saving.
 5. Once calculation of saving for each postcode pair is done, the app then run plan_multidrop.py file. the file first does some preparation, but most important.
 algorithm is on lines 75 - 451. It goes to each element of saving information, checks if delivery to each of two given postcodes were planned yet,
 checks allocate inventory, reduce available inventory, check volume of allocated inventory, add delivery to vehicle, check vehicle capacity. If vehicle is full, 
